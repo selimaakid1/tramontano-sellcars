@@ -1,0 +1,11 @@
+export const USER_LOADED = "USER_LOADED"
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS"
+export const LOGIN_FAIL = "LOGIN_FAIL"
+export const LOGOUT = "LOGOUT"
+export const AUTH_ERROR = "AUTH_ERROR"
+export const CLEAR_ERROR = "CLEAR_ERROR"
+export const SET_ALERT = "SET_ALERT"
+export const REMOVE_ALERT = "REMOVE_ALERT"
+export const ADD_CAR = "ADD_CAR";
+export const DELETE_CAR = "DELETE_CAR";
+export const EDIT_CAR = "EDIT_CAR";

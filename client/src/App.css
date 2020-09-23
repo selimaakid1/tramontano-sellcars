@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+body{
+  background: rgb(247, 247, 247);
+  position: relative;
+  min-height: 100%;
+}
+.navbar {
+  color:white;
+  text-decoration: none;
+  padding: 15px 20px;
+  border: 1px solid transparent;
+  width: 100%;
+  display: flex;
+  z-index: 10;
+  background-color: rgb(15, 16, 24);
+  position: fixed;
+  z-index: 50;
+  justify-content: space-between;
+  margin-top: 0;
+  }
+  .nav-link {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .nav-link:hover{
+    color: #525255;
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 11px;
+    text-decoration: none;
+  
+  }
+  .logo-name{
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .home-header{
+    background: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1147&q=80');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    position: relative;
+    /* opacity: 0.9; */
+    padding: 200px;
+  }
+  .home-text{
+    color: white;
+    text-align: left;
+    padding: 20px 15px;
+    font-family: "Karla", sans-serif;
+    padding: 40px 5px;
+  }
+  .home-title{
+    color: rgb(82, 176, 230);
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 35px;
+  }
+  .draw-border {
+    box-shadow: inset 0 0 0 4px #58afd1;
+    color: #58afd1;
+    transition: color 0.25s 0.0833333333s;
+    position: relative;
+ }
+  .draw-border::before, .draw-border::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    right: 0;
+ }
+  .draw-border::before {
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+ }
+  .draw-border::after {
+    border-top-width: 4px;
+    border-right-width: 4px;
+ }
+  .draw-border:hover {
+    color: #ffe593;
+ }
+  .draw-border:hover::before, .draw-border:hover::after {
+    border-color: #ffe593;
+    transition: border-color 0s, width 0.25s, height 0.25s;
+    width: 100%;
+    height: 100%;
+ }
+  .draw-border:hover::before {
+    transition-delay: 0s, 0s, 0.25s;
+ }
+  .draw-border:hover::after {
+    transition-delay: 0s, 0.25s, 0s;
+ }
+  .btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1.5;
+    font: 700 1.2rem 'Roboto Slab', sans-serif;
+    padding: 1em 2em;
+    letter-spacing: 0.05rem;
+ }
+  .btn:focus {
+    outline: 2px dotted #55d7dc;
+ }
+  .about{
+    background: rgb(247, 247, 247);
+    margin: 20px;
+  }
+  .about-title{
+    color: rgb(82, 176, 230);
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 19px;
+    padding: 10px;
+    text-align: center;
+  }
+  .about-title-2{
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 19px;
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .about-text{
+    font-family: "Karla", sans-serif;
+    text-align: justify;
+    padding: 20px;
+    font-weight: 300;
+  }
+  .about-info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 85px;
+    background-color: #f2f2f2;
+  }
+  .info-title{
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .info-text{
+    font-family: "Karla", sans-serif;
+    text-align: justify;
+    padding: 20px;
+    font-weight: 300;
+  }
+  .contatti{
+    background: #f2f2f2;
+    padding: 20px;
+    margin-bottom: 95px;
+  }
+  .trovaci{
+    text-align: center;
+  }
+  .trovaci-title{
+    color: rgb(82, 176, 230);
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 19px;
+    padding: 10px;
+  }
+  .trovaci-second-title{
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .map{
+    width: 50%;
+    margin-left: 28px;
+  }
+  .trovaci-name{
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .nostri-orari{
+    font-family: "Karla", sans-serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    padding: 10px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .trovaci-text{
+    font-family: "Karla", sans-serif;
+    text-align: center;
+    font-weight: 300;
+  }
+  .orari-text{
+    font-family: "Karla", sans-serif;
+    text-align: center;
+    font-weight: 300;
+  }
+  .about-case{
+    text-align: center;
+  }
+  label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 2.86;
+    letter-spacing: 1px;
+    margin-left: 30px;
+}
+
+.inputlog {
+    outline: 0;
+    border-bottom: solid 1px #cccc;
+    background-color: transparent;
+    border-top: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.login-form {
+    background-color: white;
+    margin: 70px;
+    padding: 50px;
+}
+
+.sign-btn {
+    width: 185px;
+    height: 40px;
+    background-color: rgba(19, 21, 29, 0.863);
+    font-family: 'Raleway', sans-serif;
+    font-size: 12px;
+    display: inline-block;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 4px;
+    line-height: 1.33;
+    color: rgb(255, 255, 255);
+    font-style: normal;
+    font-stretch: normal;
+    border: transparent;
+    position: absolute;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    margin-top: 20px;
+}
+
+.form-control-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 7px 0 0 13px;
+    transition: all 200ms;
+    opacity: 1;
+}
+
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+
+.btn-form {
+    position: relative;
+    margin: 20px;
+}
+.about-box{
+  padding: 20px;
+}
+.footer {
+  background-color:rgb(15, 16, 24);
+  padding:45px 0 20px;
+  font-size: 13px;
+  line-height:24px;
+  color:#fff;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Karla', sans-serif; 
+  text-transform: uppercase;  
+  position: absolute;
+  left: 0;
+  bottom: -95px;
+  width: 100%;
+  margin-top: 60px;
+}
+.follow i{
+  font-size: 30px;
+  color: white;
+  padding-left: 10px;
+}
+.links{
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+.follow i:hover{
+  color: rgb(33, 33, 50);
+}
+.buy-info{
+  padding-top: 75px;
+}
+.buy-title{
+  color: rgb(82, 176, 230);
+  font-family: "Karla", sans-serif;
+  text-transform: uppercase;
+  font-size: 19px;
+  padding: 10px;
+  text-align: center;
+}
+.buy-text{
+  font-family: "Karla", sans-serif;
+  text-align: justify;
+  padding: 20px;
+  font-weight: 300;
+}
+.car-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+a{
+  text-decoration: none;
+}
