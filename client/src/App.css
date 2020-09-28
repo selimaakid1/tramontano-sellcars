@@ -355,3 +355,42 @@ body{
 a{
   text-decoration: none;
 }
+.form{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  padding: 10 px;
+  padding-top: 70px;
+  background: white;
+}
+.add-title{
+  color: rgb(82, 176, 230);
+  font-family: "Karla", sans-serif;
+  text-transform: uppercase;
+  font-size: 35px;
+  text-align: center;
+  margin: 20px;
+}
+input{
+  outline: 0;
+    border-bottom: solid 1px #cccc;
+    background-color: transparent;
+    border-top: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+textarea{
+  outline: 0;
+    border-bottom: solid 1px #cccc;
+    background-color: transparent;
+    border-top: 0 none;
+    border-left: 0 none;
+    border-right: 0 none;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}

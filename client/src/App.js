@@ -6,6 +6,7 @@ import Login from './Components/Login';
 import Navbar from './Components/Navbar'
 import Footer from './Components/Footer'
 import Buy from './Components/Buy';
+import AddCar from './Components/AddCar';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route exact path='/' component={Home}/>
           <Route exact path='/login' component={Login}/>
           <Route exact path='/vendita' component={Buy}/>
+          <Route exact path='/aggiungi' component={AddCar}/>
 
         </Switch>
       </div>
