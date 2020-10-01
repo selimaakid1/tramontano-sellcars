@@ -9,3 +9,6 @@ export const REMOVE_ALERT = "REMOVE_ALERT"
 export const ADD_CAR = "ADD_CAR";
 export const DELETE_CAR = "DELETE_CAR";
 export const EDIT_CAR = "EDIT_CAR";
+export const CAR_ERROR = "CAR_ERROR"
+export const SAVE_CAR = "SAVE_CAR"
+export const CLEAR_CAR = "CLEAR_CAR"

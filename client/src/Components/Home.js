@@ -3,7 +3,6 @@ import About from './About'
 import Contatti from './Contatti'
 import { connect } from 'react-redux'
 import { loadUser } from '../Actions/AuthActions'
-
 class Home extends Component {
     componentWillMount() {
         if (this.props.auth.token) { this.props.loadUser() }
@@ -13,7 +12,6 @@ class Home extends Component {
         return (
             <div>
                 <div className='home-header'>
-                    <h2 className='home-title'>Tramontano Auto</h2>
                     <h4 className='home-text'>Tramontano, il modo migliore di viaggiare in totale comfort e sicurezza. Compra o noleggia a breve o a lungo termine la tua nuova auto da veri professionisti del settore.</h4>
                     <a href="mailto:info@tramontanoauto.it"><button className="btn draw-border">Contattaci</button></a>
                 </div>

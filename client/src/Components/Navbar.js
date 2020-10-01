@@ -1,29 +1,31 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import { logout } from '../Actions/AuthActions'
 
 const Navbar = props => {
 
+    const logMeOut = () => {
+        props.logout()
+    }
+ 
     const adminConnected = () => (
         <div className='navbar'>
             <div className='logo'>
-                <h1 className='logo-name'>Tramontano Auto</h1>
-            </div>
-            <div className='col'>
-                Ciao, {props.auth.admin.Firstname + ' ' + this.props.auth.admin.Lastname}
+                {/* <img src='/logoauto.png' width='80px'/> */}
             </div>
             <div className='row d-flex'>
                 <div className='col' id='links'>
                     <Link to='/'><h6 className='nav-link'>Home</h6></Link>
                 </div>
                 <div className='col' id='links'>
-                    <Link><h6 className='nav-link'>Noleggio</h6></Link>
+                    <Link to='/nolleggio'><h6 className='nav-link'>Noleggio</h6></Link>
                 </div>
                 <div className='col' id='links' >
                     <Link to='/vendita'><h6 className='nav-link'>Vendita</h6></Link>
                 </div>
                 <div className='col' id='links'>
-                    <h6 className='nav-link'>Disconettiti</h6>
+                    <h6 className='nav-link' onClick={logMeOut}>Disconettiti</h6>
                 </div>
             </div>
 
@@ -32,14 +34,15 @@ const Navbar = props => {
     const guest = () => (
         <div className='navbar'>
             <div className='logo'>
-                <h1 className='logo-name'>Tramontano Auto</h1>
+                {/* <img src='/logoauto.png' width='80px'/> */}
+
             </div>
             <div className='row d-flex'>
                 <div className='col' id='links'>
                     <Link to='/'><h6 className='nav-link'>Home</h6></Link>
                 </div>
                 <div className='col' id='links'>
-                    <Link><h6 className='nav-link'>Noleggio</h6></Link>
+                    <Link to='/nolleggio'><h6 className='nav-link'>Noleggio</h6></Link>
                 </div>
                 <div className='col' id='links' >
                     <Link to='/vendita'><h6 className='nav-link'>Vendita</h6></Link>
@@ -48,20 +51,21 @@ const Navbar = props => {
                     <h6 className='nav-link'>Azienda</h6>
                 </div>
                 <div className='col' id='links'>
-                    <h6 className='nav-link'>Contatti</h6>
+                    <Link to='/contatti' ><h6 className='nav-link'>Contatti</h6></Link>
                 </div>
 
             </div>
 
         </div>
     )
+
     return (
         <div className='navbar'>
             <div className='logo'>
-                <h1 className='logo-name'>Tramontano Auto</h1>
+                {/* <img src='/logoauto.png' width='80px'/> */}
             </div>
             {
-                props.auth.isAuthenticated ? adminConnected : guest
+                props.auth.isAuthenticated ? adminConnected() : guest()
             }
         </div>
     )
@@ -71,4 +75,4 @@ const mapStateToProps = state => {
         auth: state.auth
     }
 }
-export default connect(mapStateToProps)(Navbar)
+export default connect(mapStateToProps, { logout })(Navbar)

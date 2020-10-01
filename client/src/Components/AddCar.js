@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { loadUser } from '../Actions/AuthActions'
-
+import { addCar, EditCar, clearCar } from '../Actions/CarActions'
+import { Radio } from 'antd';
+import { Select } from 'antd';
+import { Upload, message, Button } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { Typography } from 'antd';
 class AddCar extends Component {
     constructor(props) {
         super(props);
@@ -9,63 +14,101 @@ class AddCar extends Component {
             img: '',
             name: '',
             brand: '',
-            class: '',
+            classe: '',
             description: '',
-            price:'',
-            service:''
+            price: '',
+            service: '',
+            value: 1
 
         }
     }
     handleChange = e => {
         this.setState({ [e.target.name]: e.target.value })
     }
+
     render() {
+        const { Option } = Select;
+        const props = {
+            name: 'file',
+            action: 'https://www.mocky.io/v2/5cc8019d300000980a055e76',
+            headers: {
+                authorization: 'authorization-text',
+            },
+            onChange(info) {
+                if (info.file.status !== 'uploading') {
+                    console.log(info.file, info.fileList);
+                }
+                if (info.file.status === 'done') {
+                    message.success(`${info.file.name} file uploaded successfully`);
+                } else if (info.file.status === 'error') {
+                    message.error(`${info.file.name} file upload failed.`);
+                }
+            },
+        };
+        const { Title } = Typography;
         return (
             <div className='form'>
                 <form>
-                    <div>
-                        <h1 className='add-title'>Aggiungi Auto</h1>
+                    <div className='form-case'>
+                        <Title level={2} className='add-title'>Aggiungi Auto</Title>
                     </div>
-                    <div>
+                    
+                    <div className='form-case'>
                         <label for='foto'>Foto</label>
-                        <input type='file' accept='.jpg' name='img' onChange={this.handleChange}/>
+                        <br></br>
+                        <Upload {...props} name='img' onChange={this.handleChange}>
+                        <Button icon={<UploadOutlined />}>Carica</Button>
+                    </Upload>
                     </div>
-                    <div>
+                    <div className='form-case'>
                         <label for='name'>Nome</label>
-                        <input type='text' name='name' onChange={this.handleChange}/>
+                        <input type='text' name='name' onChange={this.handleChange} />
                     </div>
-                    <div>
+                    <div className='form-case'>
                         <label fro='brand'>Brand</label>
-                        <input type='text' name='brand' onChange={this.handleChange}/>
+                        <input type='text' name='brand' onChange={this.handleChange} />
                     </div>
-                    <div>
+                    <div className='form-case'>
                         <label for='classe'>Classe</label>
-                        <select name="class" id="class" onChange={this.handleChange}>
-                            <option value="sedan">Sedan</option>
-                            <option value="coupe">Coupe</option>
-                            <option value="convertible">Convertilble</option>
-                            <option value="suv">Suv</option>
-                            <option value="wagon">Wagon</option>
-                            <option value="trucks">Trucks</option>
+                        <br></br>
+                        <Select defaultValue="Sedan" style={{ width: 120 }} name="classe" onChange={this.handleChange}>
+                            <Option value="sedan">Sedan</Option>
+                            <Option value="coupe">Coupe</Option>
+                            <Option value="convertible">Convertible</Option>
+                            <Option value="trucks">Trucks</Option>
+                            <Option value="suv">Suv</Option>
+                            <Option value="wagon">Wagon</Option>
+                            <Option value="minivan">Minivan</Option>
+                        </Select>
+                    </div>
 
-                        </select>
-                    </div>
-                    <div>
+                    <div className='form-case'>
                         <label for='descrizione'>Descrizione</label>
-                        <textarea name='description' onChange={this.handleChange}/>
+                        <textarea name='description' onChange={this.handleChange} />
                     </div>
-                    <div>
+                    <div className='form-case'>
                         <label for='prezzo'>Prezzo</label>
-                        <input type='text' name='price' onChange={this.handleChange}/>
+                        <input type='text' name='price' onChange={this.handleChange} />
                     </div>
-                    <div>
-                        <p>Servizio</p>
-                        <input type="radio" id="vendita" name="service" value="vendita" onChange={this.handleChange} />
-                        <label for="vendita">Vendita</label>
-                            <input type="radio" id="nolleggio" name="service" value="nolleggio"  onChange={this.handleChange}/>
-                            <label for="nolleggio">Nolleggio</label>
+
+                    <div className='form-case'>
+                        <label>Servizio</label>
+                        <br></br>
+                        <Radio.Group onChange={this.handleChange} name='servizio' value={this.state.servizio}>
+                            <Radio name='vendita' value='vendita'>Vendita</Radio>
+                            <Radio name='nolleggio' value='nolleggio'>Nolleggio</Radio>
+                        </Radio.Group>
                     </div>
-                    <button type='submit'  className='sign-btn'>
+                    <button type='submit' className='sign-btn' onClick={e => {
+                        e.prevent.default()
+                        if (this.props.save) {
+                            this.props.editCar(this.state)
+                            this.props.clearCar()
+                        } else {
+                            this.props.addCar(this.state)
+                        }
+                        this.setState({ img: '', name: '', brand: '', classe: '', description: '', price: '', service: '' })
+                    }}>
                         Aggiungi
                 </button>
                 </form>
@@ -74,8 +117,8 @@ class AddCar extends Component {
     }
 }
 const mapStateToProps = state => {
-    return{
-        cars: state.car
+    return {
+        save: state.car.saved
     }
 }
-export default connect(mapStateToProps, {loadUser})(AddCar)
+export default connect(mapStateToProps, { addCar, EditCar, clearCar, loadUser })(AddCar)

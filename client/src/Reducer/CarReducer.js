@@ -1,38 +1,39 @@
-import { ADD_CAR, DELETE_CAR, EDIT_CAR} from '../Actions/types'
+import { ADD_CAR, DELETE_CAR, EDIT_CAR, SAVE_CAR, CLEAR_CAR, CAR_ERROR} from '../Actions/types'
 import { v4 as uuidv4 } from 'uuid'
-import { DeleteCar } from '../Actions/CarActions'
 
-const initState = [{
+
+const initState = {
+    cars:[{
 id: uuidv4(),
 img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc90bmc701a021001.png',
 name: 'BMW M2',
 brand: 'bmv',
-class: 'coupe',
-description: '',
-price: '',
+classe: 'coupe',
+description: '24.0000km',
+price: '52.000€',
 service: 'rent'
 },{
     id: uuidv4(),
 img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10jac142a021001.png',
 name: 'Jaguar F-TYPE',
 brand: 'jaguar',
-class: 'convertible',
+classe: 'convertible',
 description: '',
 price: '',
-service: 'buy'
+service: 'vendita'
 },{
     id: uuidv4(),
 img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10bmc971a021001.png',
 name: 'BMW M440',
 brand: 'bmv',
-class: 'coupe',
+classe: 'coupe',
 description: '',
 price: ''
 },{
     id: uuidv4(),
 img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10bmc971a021001.png',
 name: 'BMW M440',
-class: 'coupe',
+classe: 'coupe',
 description: '',
 price: ''
 },{
@@ -40,7 +41,7 @@ price: ''
     img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc90bmc701a021001.png',
     name: 'BMW M2',
     brand: 'bmv',
-    class: 'coupe',
+    classe: 'coupe',
     description: '',
     price: ''
     },{
@@ -48,7 +49,7 @@ price: ''
     img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10jac142a021001.png',
     name: 'Jaguar F-TYPE',
     brand: 'jaguar',
-    class: 'convertible',
+    classe: 'convertible',
     description: '',
     price: ''
     },{
@@ -56,7 +57,7 @@ price: ''
         img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc90bmc701a021001.png',
         name: 'BMW M2',
         brand: 'bmv',
-        class: 'coupe',
+        classe: 'coupe',
         description: '',
         price: ''
         },{
@@ -64,32 +65,49 @@ price: ''
         img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10jac142a021001.png',
         name: 'Jaguar F-TYPE',
         brand: 'jaguar',
-        class: 'convertible',
+        classe: 'convertible',
         description: '',
         price: ''
         }
 
-]
+],
+saved: null,
+error: null
+}
 
-const CarReducer = (state = {cars : initState}, action) => {
+const CarReducer = (state = initState, action) => {
     switch(action.type){
         case ADD_CAR:
             return {
-                ...state, cars: state.cars.concat(action.payload)
+                ...state,
+                cars: [action.payload, ...state.cars]
             }
         case DELETE_CAR:
             return{
                 ...state,
-                cars: state.cars.filter(el => el.id !== action.payload)
+                cars: [state.cars.filter(el => el.id !== action.payload)]
+            }
+        case SAVE_CAR:
+            return{
+                ...state,
+                saved: action.payload
             }
         case EDIT_CAR:
             return{
                 ...state,
                 cars: state.cars.map(el => 
                     el.id === action.payload.id
-                    ? {
-                        ...el, ...action.payload.updatedCar
-                    } : el)
+                    ? action.payload : el)
+            }
+        case CLEAR_CAR:
+            return{
+                ...state,
+                saved: null
+            }
+        case CAR_ERROR:
+            return{
+                ...state,
+                error: action.payload
             }
         default: 
         return state

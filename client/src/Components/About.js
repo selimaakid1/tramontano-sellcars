@@ -1,6 +1,6 @@
 import React from 'react'
 import AboutInfo from './AboutInfo'
-
+import Why from './Why'
 function About() {
     return (
         <div className='about'>
@@ -17,6 +17,8 @@ function About() {
                 <p className='about-text'>La ditta Tramontano garantisce alla sua clientela un'ampia gamma di servizi nel settore automobilistico. </p>
             </div>
             <AboutInfo />
+            <h2 className='about-title'>Perché scegliere noi?</h2>
+            <Why />
         </div>
     )
 }

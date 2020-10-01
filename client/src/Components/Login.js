@@ -58,11 +58,11 @@ class Login extends Component {
                 <br />
                 <div className='form-group' >
                     <input type='email' name='Email' className='input-full form-control inputlog' onChange={this.handleChange} autoCorrect='off' autoCapitalize='off' autoFocus aria-describedby='form-error' required />
-                    <label className='form-control-placeholder' for='email'>Email*</label>
+                    <label for='email'>Email*</label>
                 </div>
                 <div className='form-group'>
                     <input type='password' name='Password' className='input-full form-control inputlog' onChange={this.handleChange} aria-describedby='form-error' required />
-                    <label for='password' className='form-control-placeholder'>Password*</label>
+                    <label for='password'>Password*</label>
                 </div>
                 <div className='btn-form'>
                     <button type='submit' onClick={this.loginNow} className='sign-btn'>
