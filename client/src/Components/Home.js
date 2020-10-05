@@ -3,6 +3,7 @@ import About from './About'
 import Contatti from './Contatti'
 import { connect } from 'react-redux'
 import { loadUser } from '../Actions/AuthActions'
+import Showroom from './Showroom'
 class Home extends Component {
     componentWillMount() {
         if (this.props.auth.token) { this.props.loadUser() }
@@ -16,6 +17,7 @@ class Home extends Component {
                     <a href="mailto:info@tramontanoauto.it"><button className="btn draw-border">Contattaci</button></a>
                 </div>
                 <About />
+                <Showroom />
                 <Contatti />
             </div>
         )

@@ -11,15 +11,15 @@ brand: 'bmv',
 classe: 'coupe',
 description: '24.0000km',
 price: '52.000€',
-service: 'rent'
+service: 'nolleggio'
 },{
     id: uuidv4(),
 img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10jac142a021001.png',
 name: 'Jaguar F-TYPE',
 brand: 'jaguar',
 classe: 'convertible',
-description: '',
-price: '',
+description: '24.0000km',
+price: '52.000€',
 service: 'vendita'
 },{
     id: uuidv4(),
@@ -28,22 +28,25 @@ name: 'BMW M440',
 brand: 'bmv',
 classe: 'coupe',
 description: '',
-price: ''
+price: '',
+service: 'nolleggio'
 },{
     id: uuidv4(),
 img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10bmc971a021001.png',
 name: 'BMW M440',
 classe: 'coupe',
 description: '',
-price: ''
+price: '',
+service: 'nolleggio'
 },{
     id: uuidv4(),
     img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc90bmc701a021001.png',
     name: 'BMW M2',
     brand: 'bmv',
     classe: 'coupe',
-    description: '',
-    price: ''
+    description: '24.0000km',
+    price: '52.000€',
+    service: 'vendita'
     },{
         id: uuidv4(),
     img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10jac142a021001.png',
@@ -51,7 +54,8 @@ price: ''
     brand: 'jaguar',
     classe: 'convertible',
     description: '',
-    price: ''
+    price: '',
+    service: 'nolleggio'
     },{
         id: uuidv4(),
         img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usc90bmc701a021001.png',
@@ -59,7 +63,8 @@ price: ''
         brand: 'bmv',
         classe: 'coupe',
         description: '',
-        price: ''
+        price: '',
+        service: 'vendita'
         },{
             id: uuidv4(),
         img: 'https://www.cstatic-images.com/car-pictures/maxWidth503/usd10jac142a021001.png',
@@ -67,7 +72,8 @@ price: ''
         brand: 'jaguar',
         classe: 'convertible',
         description: '',
-        price: ''
+        price: '',
+        service: 'vendita'
         }
 
 ],

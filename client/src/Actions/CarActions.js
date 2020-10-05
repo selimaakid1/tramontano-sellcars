@@ -1,5 +1,6 @@
-import { ADD_CAR, CAR_ERROR, CLEAR_CAR,DELETE_CAR, SAVE_CAR, EDIT_CAR } from './types'
+import { ADD_CAR, CAR_ERROR, GET_CAR, CLEAR_CAR,DELETE_CAR, SAVE_CAR, EDIT_CAR } from './types'
 import axios from 'axios'
+
 
 export const addCar = newCar => dispatch => {
     const config = {

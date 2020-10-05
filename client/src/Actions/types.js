@@ -12,3 +12,4 @@ export const EDIT_CAR = "EDIT_CAR";
 export const CAR_ERROR = "CAR_ERROR"
 export const SAVE_CAR = "SAVE_CAR"
 export const CLEAR_CAR = "CLEAR_CAR"
+export const GET_CAR = "GET_CAR"
